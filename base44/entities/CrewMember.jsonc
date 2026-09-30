@@ -1,0 +1,25 @@
+{
+  "name": "CrewMember",
+  "type": "object",
+  "properties": {
+    "shoot_day_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "call_time": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "shoot_day_id",
+    "name"
+  ]
+}

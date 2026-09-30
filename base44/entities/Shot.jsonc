@@ -1,0 +1,32 @@
+{
+  "name": "Shot",
+  "type": "object",
+  "properties": {
+    "shoot_day_id": {
+      "type": "string"
+    },
+    "shot_size": {
+      "type": "string"
+    },
+    "camera_move": {
+      "type": "string"
+    },
+    "lens": {
+      "type": "string"
+    },
+    "note": {
+      "type": "string"
+    },
+    "done": {
+      "type": "boolean",
+      "default": false
+    },
+    "order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "shoot_day_id"
+  ]
+}

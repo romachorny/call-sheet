@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 93%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 93%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 93%;
+    --primary: 14 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 11%;
+    --secondary-foreground: 0 0% 93%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 52%;
+    --accent: 14 100% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 14 100% 55%;
+    --chart-1: 14 100% 55%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 50%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --font-heading: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+/* Thin compact scrollbars */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(0 0% 22%); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(0 0% 30%); }
+
+/* Hide number input spinners */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
+
+/* Inline editable cell */
+.cs-input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: hsl(var(--foreground));
+  font-size: 13px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.cs-input:hover { border-color: hsl(0 0% 22%); }
+.cs-input:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  background: hsl(0 0% 9%);
+}
+
+/* ===== Print: A4 call sheet ===== */
+@page { size: A4; margin: 10mm; }
+
+@media print {
+  body { background: #ffffff !important; }
+  .no-print { display: none !important; }
+  .print-area { display: block !important; }
+  .print-sheet {
+    color: #111;
+    background: #fff;
+    font-family: ui-sans-serif, system-ui, "Segoe UI", Arial, sans-serif;
+    font-size: 11px;
+  }
+  .print-sheet h1 { font-size: 22px; margin: 0; }
+  .print-sheet h2 { font-size: 13px; margin: 0 0 4px; text-transform: uppercase; letter-spacing: 0.05em; color: #555; }
+  .print-sheet table { width: 100%; border-collapse: collapse; }
+  .print-sheet th { text-align: left; font-size: 9px; text-transform: uppercase; letter-spacing: 0.05em; color: #888; border-bottom: 1.5px solid #111; padding: 4px 6px; }
+  .print-sheet td { border-bottom: 0.5px solid #ddd; padding: 4px 6px; vertical-align: top; }
+  .print-sheet .accent-bar { height: 4px; background: #FF4A1C; width: 100%; margin-bottom: 10px; }
+}
